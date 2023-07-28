@@ -8,7 +8,7 @@ image: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:606c91ed7dc3e3f831d
 nodeSelector:
   node-role.kubernetes.io/worker: ""
 #  router-sharded: "yes"
-routeLabels: type=sharded
+routeLabels: type=sharded-metrics
 service:
 #  useInternalLB: aws
   annotations:
@@ -28,5 +28,8 @@ httpRouterPort: 80
 httpsRouterPort: 443
 metricsRouterPort: 1936
 customHAProxyTemplate:
-  useCustomTemplate: true
+  useCustomTemplate: false
   file: haproxy-config.template
+haproxyMetricsThreshold:
+  useHaproxyThreshold: true
+  value: 700

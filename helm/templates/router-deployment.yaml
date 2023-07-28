@@ -106,6 +106,10 @@ spec:
           value: "{{ .Values.httpRouterPort }}"
         - name: ROUTER_SERVICE_HTTPS_PORT
           value: "{{ .Values.httpsRouterPort }}"
+        {{ if .Values.haproxyMetricsThreshold.useHaproxyThreshold -}}
+        - name: ROUTER_METRICS_HAPROXY_SERVER_THRESHOLD
+          value: "{{ .Values.haproxyMetricsThreshold.value }}"
+        {{- end }}
         - name: STATS_USERNAME_FILE
           value: /var/lib/haproxy/conf/metrics-auth/statsUsername
         {{ if .Values.customHAProxyTemplate.useCustomTemplate -}}
