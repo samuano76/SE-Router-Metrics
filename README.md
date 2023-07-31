@@ -1,4 +1,4 @@
-## How to raise haproxy metrics threshold
+## How to raise haproxy metrics threshold to higher value of 500
 
 When you are using an Azure Front Door with public IP address-based origins, you should ensure that traffic flows through your Front Door instance.
 Microsoft Azure documentation instructs to use two tecniques in order to make sure that the traffic origns from the proper Front Door:
